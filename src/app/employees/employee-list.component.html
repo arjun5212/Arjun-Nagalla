@@ -1,0 +1,59 @@
+<form  [formGroup]="empGroup" (ngSubmit)="onSubmit(empGroup.value)">
+        <div class="form-container">
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Employee Details:</div>
+            <div class='col-md-4'>
+                <input type='text' name="employeeId" id="employeeId" formControlName="employeeId"/>
+            </div>
+            <div>
+                    <input type="submit" class="btn btn-primary" value="Submit" >
+            </div>
+        </div>
+        
+        <div class='table-responsive'>
+            <table class='table'
+                    *ngIf='employees && employees.length'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Contract Type</th>
+                        <th>Role Id</th>
+                        <th>Role Name</th>
+                        <th>Role Description</th>
+                        <th>Hourly Salary</th>
+                        <th>Monthly Salary</th>
+                        <th>Annual Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let employee of filteredEmployees'>
+                        
+                        <td><a [routerLink]="['/employees', employee.id]">
+                                {{ employee.id }}
+                            </a>
+						</td>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.contractTypeName }}</td>
+                        <td>{{ employee.roleId }}</td>
+                        <td>{{ employee.roleName }}</td>
+                        <td>{{ employee.roleDescription }}</td>
+                        <td>{{ employee.hourlySalary | currency:'USD':true:'1.2-2'}}</td>
+                        <td>{{ employee.monthlySalary | currency:'USD':true:'1.2-2'}}</td>
+                        <td>{{ employee.annualSalary | currency:'USD':true:'1.2-2'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>
+        </div>
+</form>

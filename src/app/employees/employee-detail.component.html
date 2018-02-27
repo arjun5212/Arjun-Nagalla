@@ -1,0 +1,55 @@
+<div class='panel panel-primary' *ngIf='employee'>
+    <div class='panel-heading'>
+        {{pageTitle + ': ' + employee.name}}
+    </div>
+
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Id:</div>
+                    <div class='col-md-6'>{{employee.id}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Name:</div>
+                    <div class='col-md-6'>{{employee.name}}</div>
+                </div>
+                <div class='row'>
+                        <div class='col-md-3'>contractTypeName:</div>
+                        <div class='col-md-6'>{{employee.contractTypeName}}</div>
+                    </div>
+                <div class='row'>
+                    <div class='col-md-3'>Role Id:</div>
+                    <div class='col-md-6'>{{employee.roleId}}</div>
+                </div>
+                <div class='row'>
+                        <div class='col-md-3'>Role Name:</div>
+                        <div class='col-md-6'>{{employee.roleName}}</div>
+                    </div>
+                <div class='row'>
+                    <div class='col-md-3'>Role Description:</div>
+                    <div class='col-md-6'>{{employee.roleDescription}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Hourly Salary:</div>
+                    <div class='col-md-6'>{{employee.hourlySalary|currency:'USD':true}}</div>
+                </div>
+                <div class='row'>
+                        <div class='col-md-3'>Monthly Salary:</div>
+                        <div class='col-md-6'>{{employee.monthlySalary|currency:'USD':true}}</div>
+                </div>
+                <div class='row'>
+                            <div class='col-md-3'>Annual Salary:</div>
+                            <div class='col-md-6'>{{employee.annualSalary|currency:'USD':true}}</div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+</div>
